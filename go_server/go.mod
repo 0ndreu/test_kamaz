@@ -10,5 +10,4 @@ require (
 	github.com/kelseyhightower/envconfig v1.4.0
 	github.com/lib/pq v1.4.0
 	github.com/rs/zerolog v1.15.0
-
 )
