@@ -38,7 +38,9 @@ func main() {
 	if err != nil {
 		log.Fatalf("Failed post: %s\nStatus code: %d", err, &status)
 	}
-	log.Println(*status)
+	if status != nil {
+		log.Println(*status)
+	}
 }
 
 func genGoods(maxCount int) []good {
