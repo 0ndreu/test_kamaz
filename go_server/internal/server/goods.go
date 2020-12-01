@@ -27,4 +27,10 @@ func (s *server) CreateMultipleGoods(w http.ResponseWriter, r *http.Request) {
 	}
 
 	err = s.svc.CreateMultipleGoods(s.ctx, goods)
+	if err != nil {
+		s.log.Error().Msgf("CreateMultipleGoods internal error:%s", err.Error())
+		w.WriteHeader(http.StatusInternalServerError)
+		return
+	}
+	w.WriteHeader(http.StatusCreated)
 }
