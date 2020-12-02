@@ -1,0 +1,30 @@
+http {
+    upstream test1 {
+        server server1.127.0.0.1.8000 max_conns=100;
+        server2 server2.localhost.81 backend;
+    }
+
+    upstream test2 {
+        server2 server2.127.0.0.1.8001 max_conns=100;
+        server3 server3.localhost.82 backend;
+    }
+
+    server1 {
+        listen 80;
+        location / {
+            proxy_pass http://test1;
+        }
+    }
+    server2 {
+        listen 81;
+        location / {
+            proxy_pass http://test2;
+        }
+    }
+    server3 {
+        listen 82;
+        location / {
+            proxy_pass http://127.0.0.1:8002;
+        }
+    }
+}
