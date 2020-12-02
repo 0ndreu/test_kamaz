@@ -1,12 +1,12 @@
 http {
     upstream test1 {
         server server1.127.0.0.1:8000 max_conns=100;
-        server2 server2.localhost:81 backend;
+        server2 server2.localhost:81 backup;
     }
 
     upstream test2 {
         server2 server2.127.0.0.1:8001 max_conns=100;
-        server3 server3.localhost:82 backend;
+        server3 server3.localhost:82 backup;
     }
 
     server1 {
