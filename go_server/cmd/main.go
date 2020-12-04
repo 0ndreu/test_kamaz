@@ -23,7 +23,7 @@ type config struct {
 	WTimeout time.Duration `envconfig:"WRITE_TIMEOUT" required:"true"`
 
 	// Database
-	DBConnStr string        `envconfig:"DB_CONN_STR" required:"false"`
+	DBConnStr string        `envconfig:"DB_CONN_STR" required:"true"`
 	DBTimeout time.Duration `envconfig:"DB_TIMEOUT" required:"true"`
 }
 
